@@ -6,10 +6,13 @@
     <div class="allergens">
         {% for allergen in allergens %}
             <div class="allergen-{{allergen.id}}">
-                <h1>{{allergen.title}}</h1>
+                <h1>
+                    <a href="/allergens/{{allergen.id}}">{{allergen.title}}</a>
+                </h1>
                 <p>{{allergen.description}}</p>
             </div>
             <hr>
         {% endfor %}
     </div>
+<a class="btn btn-primary" href="{{ url_for('new_allergen') }}">Submit a New Allergen</a>
 {% endblock %}

@@ -6,10 +6,11 @@
     <div class="dishes">
         {% for dish in dishes %}
             <div class="dish-{{dish.id}}">
-                <h1>{{dish.title}}</h1>
+                <h1><a href="/dishes/{{dish.id}}">{{dish.title}}</a></h1>
                 <p>{{dish.description}}</p>
             </div>
             <hr>
         {% endfor %}
     </div>
+    <a class="btn btn-primary" href="{{ url_for('new_dish') }}">Submit a New Dish</a>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'baseplate.html' %}
+
+{% block title %} Add New Allergen {% endblock %}
+
+{% block main %}
+    {{ error }}
+    <form method="post" action="{{request.path}}">
+      <div class="form-group">
+        <label for="allergenTitle">Enter your title here.</label>
+        <input type="text" class="form-control" id="allergenTitle" name="allergenTitle" aria-describedby="allergenTitle" placeholder="Milk">
+      </div>
+      <div class="form-group">
+        <label for="allergenDesc">Enter your description here.</label>
+        <textarea class="form-control" id="allergenDesc" name="allergenDesc" rows="3" placeholder="My sworn enemy."></textarea>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="isDangerous" name="isDangerous">
+        <label class="form-check-label" for="isDangerous">This is a dangerous dish (contains dangerous allergens)</label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
+{% endblock %}
