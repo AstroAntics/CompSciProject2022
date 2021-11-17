@@ -1,3 +1,6 @@
 venv/
 .idea/
 __pycache__/
+
+# ignore all test files - demo purposes only
+/app/static/img/dummyimg/*

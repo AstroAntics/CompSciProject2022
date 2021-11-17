@@ -1,3 +1,9 @@
 /*
 * CSS override file
 */
+
+#navbar-profile-img img {
+    float: right;
+    max-width: 20%;
+    max-height: 20%;
+}
