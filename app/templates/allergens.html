@@ -1,0 +1,15 @@
+{% extends 'baseplate.html' %}
+
+{% block title %} Allergens {% endblock %}
+
+{% block main %}
+    <div class="allergens">
+        {% for allergen in allergens %}
+            <div class="allergen-{{allergen.id}}">
+                <h1>{{allergen.title}}</h1>
+                <p>{{allergen.description}}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

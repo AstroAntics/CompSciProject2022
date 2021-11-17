@@ -1,0 +1,15 @@
+{% extends 'baseplate.html' %}
+
+{% block title %} Restaurants {% endblock %}
+
+{% block main %}
+    <div class="restaurants">
+        {% for restaurant in restaurants %}
+            <div class="restaurant-{{restaurant.id}}">
+                <h1>{{restaurant.title}}</h1>
+                <p>{{restaurant.description}}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
