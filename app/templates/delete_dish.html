@@ -1,0 +1,12 @@
+{% extends 'baseplate.html' %}
+{% block title %}
+    Delete "{{dish.title}}"? - Alleradar
+{% endblock %}
+
+{% block main %}
+    <p>Are you sure you want to delete <strong>{{dish.title}}?</strong></p>
+    <a href="/dishes">&larr; Cancel</a>
+    <form class="float-right" action="/dishes">
+        <input class="btn btn-danger" type="submit" value="Delete Dish">
+    </form>
+{% endblock %}

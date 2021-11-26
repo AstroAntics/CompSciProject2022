@@ -1,6 +1,8 @@
 venv/
 .idea/
 __pycache__/
+# for testing purposes
+/app/core/header_quotes.py
 
 # ignore all test files - demo purposes only
 /app/static/img/dummyimg/*

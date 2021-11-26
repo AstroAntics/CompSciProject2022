@@ -4,11 +4,16 @@
         <!-- Base tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon made by Freepik from flaticon.com -->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
         <!-- CSS imports -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-min.css') }}">
         <!-- Stylesheet override -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/baseplate.css') }}">
         <title>{% block title %}{% endblock %}</title>
+        <!-- Page scripts -->
+        {% block scriptholder %}
+        {% endblock %}
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
             <a class="navbar-brand" href="/">Alleradar</a>
@@ -36,6 +41,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/restaurants">Restaurants</a>
+              </li>
+                <li class="nav-item">
+                <a class="nav-link" href="/cuisines">Cuisines</a>
               </li>
             </ul>
           </div>

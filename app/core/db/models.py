@@ -25,6 +25,7 @@ class Dish(db.Model):
     # restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurant.id'))
     title = db.Column(db.String(64))
     description = db.Column(db.Text())
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'))
 
     def __repr__(self):
         return f'<Dish {self.title}>'
@@ -35,6 +36,13 @@ class Restaurant(db.Model):
     title = db.Column(db.String(32))
     description = db.Column(db.Text())
     is_dangerous = db.Column(db.Boolean())
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'))
 
     def __repr__(self):
         return f'<Restaurant {self.title}>'
+
+
+class Cuisine(db.Model):
+    # cuisine acts as a category to the restaurant
+    id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.String(32))

@@ -1,16 +1,28 @@
+import os
 from flask import render_template, redirect, url_for, request, abort
+from flask import send_from_directory # second line of Flask imports
 from app import app
 from app.core.db.models import *
 
 
 @app.route("/")
 def index():
-    return render_template("baseplate.html")
+    return render_template("homepage.html")
 
 
 @app.route("/index")
 def redirect_home():
     return redirect(url_for("index"))
+
+
+@app.route('/favicon.ico')
+# Courtesy of <https://thewebdev.info/2020/10/08/python-web-development-with-flask>
+def favicon():
+    return send_from_directory(
+        os.path.join(
+            app.root_path, 'static'
+        ), 'favicon.ico', mimetype='image/vnd.microsoft.icon'
+    )
 
 
 @app.route("/allergens")
@@ -41,9 +53,27 @@ def new_allergen():
     return render_template("new_allergen.html")
 
 
+@app.route("/allergens/delete/<id>", methods=['GET', 'POST']) # do not allow get requests for deletion
+def delete_allergen(allergen):
+    if request.method == 'POST':
+        db.session.delete(allergen)
+        db.session.commit()
+        return render_template("allergens.html")
+
+
 @app.route("/dishes")
 def show_dishes():
     return render_template("dishes.html", dishes=Dish.query.all())
+
+
+@app.route("/dishes/<int:_id>")
+def show_specific_dish(_id):
+    # show specific dish as opposed to all of them
+    dish = Dish.query.filter_by(id=_id).first()
+    if dish:
+        return render_template("view_dish.html", dish=dish)
+    else:
+        abort(404)
 
 
 @app.route("/dishes/new", methods=['GET', 'POST'])
@@ -64,19 +94,16 @@ def new_dish():
     return render_template("new_dish.html")
 
 
-@app.route("/dishes/delete/<dish>", methods=['POST']) # do not allow get requests for deletion
-def delete_dish(dish):
+@app.route("/dishes/delete/<int:_id>", methods=['GET', 'POST'])
+def delete_dish(_id):
+    _dish = Dish.query.filter_by(id=_id).first()
     if request.method == 'POST':
-        db.session.delete(dish)
-        db.session.commit()
-        # also, before we delete the dish, let's make sure it's _actually_ deleted
-        # and we sort by id instead of title here
-        if Dish.query.filter_by(title=dish.id).first():
-            # still exists, abort
-            # this should never happen
-            return render_template("delete_dish.html")
-        else:
-            return redirect("/dishes")
+        # do not allow get delete requests
+        if _dish:
+            db.session.delete(_dish)
+            db.session.commit()
+            return redirect("dishes.html")
+        return render_template("delete_dish.html", dish=_dish)
 
 
 @app.route("/restaurants")
@@ -103,6 +130,14 @@ def new_restaurant():
             db.session.commit()  # save to db
             return redirect("/restaurants")
     return render_template("new_restaurant.html")
+
+
+@app.route("/restaurants/delete/<id>", methods=['GET', 'POST']) # do not allow get requests for deletion
+def delete_restaurant(restaurant):
+    if request.method == 'POST':
+        db.session.delete(restaurant)
+        db.session.commit()
+        return render_template("dishes.html")
 
 
 @app.route("/users")

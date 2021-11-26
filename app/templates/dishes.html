@@ -8,6 +8,7 @@
             <div class="dish-{{dish.id}}">
                 <h1><a href="/dishes/{{dish.id}}">{{dish.title}}</a></h1>
                 <p>{{dish.description}}</p>
+                <a class="text-muted" href="/dishes/delete/{{dish.id}}">Delete dish</a>
             </div>
             <hr>
         {% endfor %}

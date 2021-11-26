@@ -1,0 +1,15 @@
+{% extends 'baseplate.html' %}
+
+{% block title %}
+    {{dish.title}} - Alleradar
+{% endblock %}
+
+{% block main %}
+    <h1>{{dish.title}}</h1>
+    <p>{{dish.description}}</p>
+
+<a class="float-left" href="/dishes">&larr; Back to Dishes</a>
+<a class="float-right" href="/dishes/delete/{{dish.id}}">Delete Dish</a>
+
+
+{% endblock %}
