@@ -26,6 +26,9 @@
                     {% endblock %}
                     <!-- end pusher -->
                 </div>
+        {% block footer %}
+            {% include 'footer.html' %}
+        {% endblock %}
         </main>
             <!-- Final imports -->
             <script src="{{ url_for('static', filename='js/jquery-min.js') }}"></script>

@@ -1,7 +1,81 @@
-{% extends 'baseplate.html' %}
-
 {% block footer %}
-    <footer>
-        <small>Alleradar is created by Marko Vucinic. </small>
-    </footer>
+<footer class="text-center text-lg-start bg-light text-muted">
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <div class="me-5 d-none d-lg-block">
+      <span>Follow our latest updates on:</span>
+    </div>
+
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </section>
+  <section>
+    <div class="container text-center text-md-start mt-5">
+      <div class="row mt-3">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Alleradar
+          </h6>
+          <p>
+            Bringing allergy prevention right to your doorstep.
+          </p>
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Where to?
+          </h6>
+          <p>
+            <a href="/dishes" class="text-reset">Dishes</a>
+          </p>
+          <p>
+            <a href="/allergens" class="text-reset">Allergens</a>
+          </p>
+          <p>
+            <a href="/cuisines" class="text-reset">Cuisines</a>
+          </p>
+          <p>
+            <a href="/restaurants" class="text-reset">Restaurants</a>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact Us
+          </h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY, U.S.</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            help@alleradar.net
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    Copyright © 2021
+    <a class="text-reset fw-bold" href="/">Marko Vucinic (alleradar.net)</a>
+    <br>
+    <small>Footer design courtesy of <a href="https://mdbootstrap.com/docs/standard/navigation/footer/">MDBootstrap</a></small>
+  </div>
+  <!-- Copyright -->
+</footer>
 {% endblock %}
