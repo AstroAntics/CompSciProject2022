@@ -1,8 +1,9 @@
 import os
 from flask import render_template, redirect, url_for, request, abort
-from flask import send_from_directory # second line of Flask imports
+from flask import send_from_directory  # second line of Flask imports
 from app import app
 from app.core.db.models import *
+from app.core.db import abstractor
 
 
 @app.route("/")
@@ -48,12 +49,12 @@ def new_allergen():
                 # is_dangerous=allergen_dangerous
             )
             db.session.add(allergen)
-            db.session.commit() # save to db
+            db.session.commit()  # save to db
             return redirect("/allergens")
     return render_template("new_allergen.html")
 
 
-@app.route("/allergens/delete/<id>", methods=['GET', 'POST']) # do not allow get requests for deletion
+@app.route("/allergens/delete/<id>", methods=['GET', 'POST'])  # do not allow get requests for deletion
 def delete_allergen(allergen):
     if request.method == 'POST':
         db.session.delete(allergen)
@@ -89,7 +90,7 @@ def new_dish():
             # no duplicates, good to go
             dish = Dish(title=dish_title, description=dish_desc)
             db.session.add(dish)
-            db.session.commit() # save dish to db
+            db.session.commit()  # save dish to db
             return redirect("/dishes")
     return render_template("new_dish.html")
 
@@ -132,7 +133,7 @@ def new_restaurant():
     return render_template("new_restaurant.html")
 
 
-@app.route("/restaurants/delete/<id>", methods=['GET', 'POST']) # do not allow get requests for deletion
+@app.route("/restaurants/delete/<id>", methods=['GET', 'POST'])  # do not allow get requests for deletion
 def delete_restaurant(restaurant):
     if request.method == 'POST':
         db.session.delete(restaurant)
@@ -142,7 +143,7 @@ def delete_restaurant(restaurant):
 
 @app.route("/users")
 def show_users():
-    pass # noop
+    pass  # noop
 
 
 @app.route("/about")
@@ -156,3 +157,11 @@ def cuisine_mock(_id):
     _rating = _cuisine.allergen_rating
     return render_template("cuisine_mockup.html", cuisine=_cuisine, star_rating=_rating)
 
+
+@app.route("/restaurant2/<int:_id>", methods=['GET', 'POST'])
+def restaurant_2(_id):
+    _restaurant = Restaurant.query.filter_by(id=_id).first()
+    _rating = _restaurant.allergen_rating
+    return render_template("restaurant_2_mockup.html", restaurant=_restaurant)
+
+    # abstractor.query_by_id(Restaurant, _id, True)

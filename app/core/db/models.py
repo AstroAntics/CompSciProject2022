@@ -35,8 +35,9 @@ class Restaurant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(32))
     description = db.Column(db.Text())
-    is_dangerous = db.Column(db.Boolean())
-    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'))
+    # is_dangerous = db.Column(db.Boolean())
+    # cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'))
+    allergen_rating = db.Column(db.Integer())
 
     def __repr__(self):
         return f'<Restaurant {self.title}>'

@@ -1,23 +1,23 @@
 {% extends 'baseplate.html' %}
 
-{% block title %} {{cuisine.name}} cuisine - Alleradar {% endblock %}
+{% block title %} {{restaurant.title}} - Alleradar {% endblock %}
 
 {% block main %}
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Cuisines</a></li>
-    <li class="breadcrumb-item active" aria-current="page">{{cuisine.name}}</li>
+    <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{restaurant.title}}</li>
   </ol>
 </nav>
 
 <div class="cuisine-block">
-    <h1>{{cuisine.name}}</h1>
+    <h1>{{restaurant.title}}</h1>
     <hr>
     <div class="row">
         <div class="col-sm">
-            <p>Allergen Rating: <strong>{{cuisine.allergen_rating}}</strong> stars </p>
+            <p>Allergen Rating: <strong>{{restaurant.allergen_rating}}</strong> stars </p>
             <p class="text-muted font-sm">Ratings explained:
                 <ul>
                     <li><img src="https://png.pngitem.com/pimgs/s/426-4268703_star-rating-transparent-background-5-star-rating-transparent.png" height="100"><br>Extremely good, alert and aware</li>
@@ -33,18 +33,7 @@
             </p>
         </div>
         <div class="col-sm mx-auto rounded text-center">
-            <p class="text-muted mx-auto d-block">Bombay Canteen</p>
-            <img class="img-thumbnail restaurant-img" src="https://b.zmtcdn.com/data/pictures/2/16541542/c7ce3301b7cb36444a0c91694bd554ec.jpg?fit=around|750:500&crop=750:500;*,*">
-            <p class="text-muted mx-auto d-block">Allergen Rating: [RATING STARS]</p>
-            <hr>
-            <p class="text-muted mx-auto d-block">O Pedro</p>
-            <img class="img-thumbnail restaurant-img" src="https://b.zmtcdn.com/data/pictures/9/18583679/c092144ad682ed22c1eda4a5199815e6.jpg">
-            <p class="text-muted mx-auto d-block">Allergen Rating: [RATING STARS]</p>
-            <hr>
-            <p class="text-muted mx-auto d-block">Origami</p>
-            <img class="img-thumbnail restaurant-img" src="https://media-cdn.tripadvisor.com/media/photo-s/0a/31/78/25/restaurant.jpg">
-            <p class="text-muted mx-auto d-block">Allergen Rating: [RATING STARS]</p>
-            <hr>
+            <p class="text-muted mx-auto d-block">Menu</p>
         </div>
     </div>
 </div>
