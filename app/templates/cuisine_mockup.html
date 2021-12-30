@@ -1,26 +1,25 @@
 {% extends 'baseplate.html' %}
 
-{% block title %} Dishes {% endblock %}
+{% block title %} {{cuisine.name}} cuisine - Alleradar {% endblock %}
 
 {% block main %}
-<!--    <div class="dishes">-->
-<!--        {% for dish in dishes %}-->
-<!--            <div class="dish-{{dish.id}}">-->
-<!--                <h1><a href="/dishes/{{dish.id}}">{{dish.title}}</a></h1>-->
-<!--                <p>{{dish.description}}</p>-->
-<!--                <a class="text-muted" href="/dishes/delete/{{dish.id}}">Delete dish</a>-->
-<!--            </div>-->
-<!--            <hr>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
-<!--    <a class="btn btn-primary" href="{{ url_for('new_dish') }}">Submit a New Dish</a>-->
+
+<!-- Yes the breadcrumbs are stuck here -->
+<!-- No I don't feel like changing it lol -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Cuisines</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{cuisine.name}}</li>
+  </ol>
+</nav>
 
 <div class="cuisine-block">
-    <h1>Indian</h1>
+    <h1>{{cuisine.name}}</h1>
     <hr>
     <div class="row">
         <div class="col-sm">
-            <p>Allergen Rating: (star rating images go here) </p>
+            <p>Allergen Rating: <strong>{{cuisine.allergen_rating}}</strong> stars </p>
             <p class="text-muted font-sm">Ratings explained:
                 <ul>
                     <li><img src="https://png.pngitem.com/pimgs/s/426-4268703_star-rating-transparent-background-5-star-rating-transparent.png" height="100"><br>Extremely good, alert and aware</li>
@@ -31,7 +30,7 @@
                     <br>
                     <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Star_rating_2_of_5.png" height="50" width="200"><br> Very little care/no caution with allergies, be cautious </li>
                     <br>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Star_rating_1_of_5.png" height="50" width="200"><br> No understanding or care for allergies, <span class="red"><strong>avoid!</strong></a></li>
+                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Star_rating_1_of_5.png" height="50" width="200"><br> No understanding or care for allergies, <strong><span class="red">avoid!</span></strong></a></li>
                 </ul>
             </p>
         </div>
@@ -51,8 +50,5 @@
         </div>
     </div>
 </div>
-
-
-
 
 {% endblock %}

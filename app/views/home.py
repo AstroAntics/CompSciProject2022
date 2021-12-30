@@ -150,6 +150,9 @@ def about_us():
     return "<p>This page is a work in progress. Come back later.</p>"
 
 
-@app.route("/cuisinemock")
-def cuisine_mock():
-    return render_template("cuisine_mockup.html")
+@app.route("/cuisinemock/<int:_id>", methods=['GET', 'POST'])
+def cuisine_mock(_id):
+    _cuisine = Cuisine.query.filter_by(id=_id).first()
+    _rating = _cuisine.allergen_rating
+    return render_template("cuisine_mockup.html", cuisine=_cuisine, star_rating=_rating)
+

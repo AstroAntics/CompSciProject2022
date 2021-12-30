@@ -45,4 +45,6 @@ class Restaurant(db.Model):
 class Cuisine(db.Model):
     # cuisine acts as a category to the restaurant
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.String(32))
+    name = db.Column(db.String(64))
+    allergen_rating = db.Column(db.Integer()) # 1 to 5
+    # type = db.Column(db.String(32))
