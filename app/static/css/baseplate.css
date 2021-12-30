@@ -7,3 +7,17 @@
     max-width: 20%;
     max-height: 20%;
 }
+
+span.red {
+    color: red !important;
+}
+
+.font-sm {
+    font-size: 80%;
+}
+
+.restaurant-img {
+    margin-bottom: 10px;
+    max-width: calc(75%);
+    max-height: calc(75%);
+}

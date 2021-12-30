@@ -148,3 +148,8 @@ def show_users():
 @app.route("/about")
 def about_us():
     return "<p>This page is a work in progress. Come back later.</p>"
+
+
+@app.route("/cuisinemock")
+def cuisine_mock():
+    return render_template("cuisine_mockup.html")
