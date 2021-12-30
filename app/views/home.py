@@ -8,7 +8,7 @@ from flask_cachebuster import CacheBuster
 
 config = {
     'extensions': ['.js', '.css', '.csv'],
-    'hash_size': 5
+    'hash_size': 8
 }
 
 cache_buster = CacheBuster(config=config)
