@@ -163,14 +163,21 @@ def about_us():
 @app.route("/cuisinemock/<int:_id>", methods=['GET', 'POST'])
 def cuisine_mock(_id):
     _cuisine = Cuisine.query.filter_by(id=_id).first()
-    _rating = _cuisine.allergen_rating
-    return render_template("cuisine_mockup.html", cuisine=_cuisine, star_rating=_rating)
+    if _cuisine is None:
+        # TODO awful hack, replace with proper 404 page sometime
+        return redirect("/")
+    else:
+        _rating = _cuisine.allergen_rating
+        return render_template("cuisine_mockup.html", cuisine=_cuisine, star_rating=_rating)
 
 
 @app.route("/restaurant2/<int:_id>", methods=['GET', 'POST'])
 def restaurant_2(_id):
     _restaurant = Restaurant.query.filter_by(id=_id).first()
-    _rating = _restaurant.allergen_rating
-    return render_template("restaurant_2_mockup.html", restaurant=_restaurant)
-
+    if _restaurant is None:
+        # TODO even _worse_ hack, replace with proper 404 page sometime
+        return redirect("/")
+    else:
+        _rating = _restaurant.allergen_rating
+        return render_template("restaurant_2_mockup.html", restaurant=_restaurant)
     # abstractor.query_by_id(Restaurant, _id, True)
