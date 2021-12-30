@@ -180,4 +180,3 @@ def restaurant_2(_id):
     else:
         _rating = _restaurant.allergen_rating
         return render_template("restaurant_2_mockup.html", restaurant=_restaurant)
-    # abstractor.query_by_id(Restaurant, _id, True)
