@@ -4,6 +4,15 @@ from flask import send_from_directory  # second line of Flask imports
 from app import app
 from app.core.db.models import *
 from app.core.db import abstractor
+from flask_cachebuster import CacheBuster
+
+config = {
+    'extensions': ['.js', '.css', '.csv'],
+    'hash_size': 5
+}
+
+cache_buster = CacheBuster(config=config)
+cache_buster.init_app(app)
 
 
 @app.route("/")
