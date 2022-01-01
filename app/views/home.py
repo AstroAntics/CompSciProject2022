@@ -7,7 +7,7 @@ from app.core.db import abstractor
 from flask_cachebuster import CacheBuster
 
 config = {
-    'extensions': ['.js', '.css', '.csv'],
+    'extensions': ['.js', '.css', '.csv', '.pdf'],
     'hash_size': 8
 }
 
@@ -171,6 +171,13 @@ def cuisine_mock(_id):
         return render_template("cuisine_mockup.html", cuisine=_cuisine, star_rating=_rating)
 
 
+@app.route("/cuisinemock/<int:_id>/", methods=['GET', 'POST'])
+# redirect user if slash is typed (this saves us the embarrassment of a 404 page)
+def redirect_to_cuisine_page(_id):
+    # TODO HACK HACK HACK fix with better way to redirect
+    return redirect(f'/cuisinemock/{_id}')
+
+
 @app.route("/restaurant2/<int:_id>", methods=['GET', 'POST'])
 def restaurant_2(_id):
     _restaurant = Restaurant.query.filter_by(id=_id).first()
@@ -180,3 +187,9 @@ def restaurant_2(_id):
     else:
         _rating = _restaurant.allergen_rating
         return render_template("restaurant_2_mockup.html", restaurant=_restaurant)
+
+
+@app.route("/restaurant2/<int:_id>/", methods=['GET', 'POST'])
+def redirect_to_restaurant_2(_id):
+    # TODO fix this ugly hack
+    return redirect(f'/restaurant2/{_id}')
