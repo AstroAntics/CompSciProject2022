@@ -54,6 +54,6 @@ class Cuisine(db.Model):
     # cuisine acts as a category to the restaurant
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
-    allergen_rating = db.Column(db.Integer()) # 1 to 5
-    cuisine = db.relationship('Restaurant', backref='cuisine', uselist=False)
+    # allergen_rating = db.Column(db.Integer()) # 1 to 5
+    restaurants = db.relationship('Restaurant', backref='restaurants', uselist=True)
     # type = db.Column(db.String(32))
