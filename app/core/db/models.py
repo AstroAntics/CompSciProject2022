@@ -33,14 +33,21 @@ class Dish(db.Model):
 
 class Restaurant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), unique=True)
     title = db.Column(db.String(32))
     description = db.Column(db.Text())
     # is_dangerous = db.Column(db.Boolean())
-    # cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'))
     allergen_rating = db.Column(db.Integer())
 
     def __repr__(self):
         return f'<Restaurant {self.title}>'
+
+    # restaurants = db.relationship(
+    #     "Cuisine",
+    #     backref="Cuisine",
+    #     lazy=True,
+    #     uselist=False
+    # )
 
 
 class Cuisine(db.Model):
@@ -48,4 +55,5 @@ class Cuisine(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64))
     allergen_rating = db.Column(db.Integer()) # 1 to 5
+    cuisine = db.relationship('Restaurant', backref='cuisine', uselist=False)
     # type = db.Column(db.String(32))

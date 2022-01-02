@@ -26,10 +26,10 @@
                     {% endblock %}
                     <!-- end pusher -->
                 </div>
+        </main>
         {% block footer %}
             {% include 'footer.html' %}
         {% endblock %}
-        </main>
             <!-- Final imports -->
             <script src="{{ url_for('static', filename='js/jquery-min.js') }}"></script>
             <!-- Bootstrap JS -->
@@ -37,5 +37,7 @@
             <!-- JS Override -->
             <script src="{{ url_for('static', filename='js/core.js') }}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+            <!-- FA -->
+            <script src="https://kit.fontawesome.com/9fb1ac41d1.js" crossorigin="anonymous"></script>
         </body>
 </html>

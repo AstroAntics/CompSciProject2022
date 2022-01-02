@@ -11,39 +11,69 @@
     <li class="breadcrumb-item active" aria-current="page">{{cuisine.name}}</li>
   </ol>
 </nav>
+<a href="/cuisinemock/{{cuisine.id + 1}}" style="float: right;">&rarr; Next Cuisine</a>
 
 <div class="cuisine-block">
-    <h1>{{cuisine.name}}</h1>
+    <h1>{{cuisine.name}} cuisine</h1>
     <hr>
     <div class="row">
         <div class="col-sm">
-            <p>Allergen Rating: <strong>{{cuisine.allergen_rating}}</strong> stars </p>
-            <p class="text-muted font-sm">Ratings explained:
-                <ul>
-                    <li><img src="https://png.pngitem.com/pimgs/s/426-4268703_star-rating-transparent-background-5-star-rating-transparent.png" height="100"><br>Extremely good, alert and aware</li>
-                    <br>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Star_rating_4_of_5.png" height="50" width="200"><br> Good, but not as great as 5-stars </li>
-                    <br>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/3_stars.svg/1024px-3_stars.svg.png" height="50" width="200"><br> Satisfactory but not 100% careful </li>
-                    <br>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Star_rating_2_of_5.png" height="50" width="200"><br> Very little care/no caution with allergies, be cautious </li>
-                    <br>
-                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Star_rating_1_of_5.png" height="50" width="200"><br> No understanding or care for allergies, <strong><span class="red">avoid!</span></strong></a></li>
-                </ul>
-            </p>
+            <!-- <p>Allergen Rating: <strong> {{cuisine.allergen_rating}}</strong> stars </p>   -->
+            <div class="alert alert-danger" role="alert">
+                <h4>What is the Allergen Rating?</h4>
+                <p>The Allergen Rating is a way to let the users know how perceptive the restaurant is to allergies.</p>
+                <hr>
+                <div class="rating-explanation d-block text-center">
+                    <dt>&#9733;&#9733;&#9733;&#9733;&#9733;
+                    <dd>The restaurant is extremely perceptive to allergies.</dd>
+                </dt>
+                <dt>
+                    &#9733;&#9733;&#9733;&#9733;
+                    <dd>The restaurant is perceptive to allergies but may have some difficulties.</dd>
+                </dt>
+                <dt>
+                    &#9733;&#9733;&#9733;
+                    <dd>The restaurant may or may not be perceptive to allergies and does not always offer the best
+                    experience for the customers.</dd>
+                </dt>
+                <dt>
+                    &#9733;&#9733;
+                    <dd>The restaurant takes very little precautions towards allergic people, and they may face difficulties
+                    when ordering there.</dd>
+                </dt>
+                <dt>
+                    &#9733;
+                    <dd>The restaurant takes no precaution and is highly risky for allergic people. It may have
+                    no allergen menu at all. <strong>Consider avoiding it entirely.</strong> </dd>
+                </dt>
+                </div>
+            </div>
+<!--            <p class="text-muted font-sm">Ratings explained:-->
+<!--                <ul>-->
+<!--                    <li><img src="https://png.pngitem.com/pimgs/s/426-4268703_star-rating-transparent-background-5-star-rating-transparent.png" height="100"><br>Extremely good, alert and aware</li>-->
+<!--                    <br>-->
+<!--                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Star_rating_4_of_5.png" height="50" width="200"><br> Good, but not as great as 5-stars </li>-->
+<!--                    <br>-->
+<!--                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/3_stars.svg/1024px-3_stars.svg.png" height="50" width="200"><br> Satisfactory but not 100% careful </li>-->
+<!--                    <br>-->
+<!--                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Star_rating_2_of_5.png" height="50" width="200"><br> Very little care/no caution with allergies, be cautious </li>-->
+<!--                    <br>-->
+<!--                    <li><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Star_rating_1_of_5.png" height="50" width="200"><br> No understanding or care for allergies, <strong><span class="red">avoid!</span></strong></a></li>-->
+<!--                </ul>-->
+<!--            </p>-->
         </div>
         <div class="col-sm mx-auto rounded text-center">
-            <p class="text-muted mx-auto d-block">Bombay Canteen</p>
+            <h2 class="text-muted mx-auto d-block">Bombay Canteen</h2>
             <img class="img-thumbnail restaurant-img" src="https://b.zmtcdn.com/data/pictures/2/16541542/c7ce3301b7cb36444a0c91694bd554ec.jpg?fit=around|750:500&crop=750:500;*,*">
-            <p class="text-muted mx-auto d-block">Allergen Rating: [RATING STARS]</p>
+            <p class="text-muted mx-auto d-block">Allergen Rating: &#9733;&#9733;&#9733;&#9733;&#9733;</p>
             <hr>
-            <p class="text-muted mx-auto d-block">O Pedro</p>
+            <h2 class="text-muted mx-auto d-block">O Pedro</h2>
             <img class="img-thumbnail restaurant-img" src="https://b.zmtcdn.com/data/pictures/9/18583679/c092144ad682ed22c1eda4a5199815e6.jpg">
-            <p class="text-muted mx-auto d-block">Allergen Rating: [RATING STARS]</p>
+            <p class="text-muted mx-auto d-block">Allergen Rating: &#9733;&#9733;&#9733;&#9733;&#9733;</p>
             <hr>
-            <p class="text-muted mx-auto d-block">Origami</p>
+            <h2 class="text-muted mx-auto d-block">Origami</h2>
             <img class="img-thumbnail restaurant-img" src="https://media-cdn.tripadvisor.com/media/photo-s/0a/31/78/25/restaurant.jpg">
-            <p class="text-muted mx-auto d-block">Allergen Rating: [RATING STARS]</p>
+            <p class="text-muted mx-auto d-block">Allergen Rating: &#9733;&#9733;&#9733;&#9733;&#9733;</p>
             <hr>
         </div>
     </div>
