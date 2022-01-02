@@ -25,6 +25,11 @@ def redirect_home():
     return redirect(url_for("index"))
 
 
+@app.route("/home2")
+def new_homepage():
+    return render_template("homepage2.html")
+
+
 @app.route('/favicon.ico')
 # Courtesy of <https://thewebdev.info/2020/10/08/python-web-development-with-flask>
 def favicon():

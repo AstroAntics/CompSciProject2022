@@ -1,0 +1,27 @@
+{% extends 'baseplate.html' %}
+
+{% block title %} Home - Alleradar {% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block main %}
+<div class="row" style="height: 80vh; margin-left: calc(-10.5%) !important;">
+    <div class="col-sm-3 mx-0" style="transform: translateY(-5px);">
+        <h3>Allergen Navigator</h3>
+    </div>
+    <div class="col">
+        <a href="/">Test Link 1</a>
+        <a href="/">Test Link 2</a>
+        <a href="/">Test Link 3</a>
+        <a href="/">Test Link 4</a>
+        <a href="/">Test Link 5</a>
+        <a href="/">Test Link 6</a>
+    </div>
+    <div class="col-sm-3">
+        <a href="/">Contact Us</a>
+    </div>
+</div>
+
+{% endblock %}
