@@ -33,9 +33,9 @@ class Dish(db.Model):
 
 class Restaurant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), unique=True)
+    cuisine_id = db.Column(db.Integer, db.ForeignKey('cuisine.id'), unique=False)
     title = db.Column(db.String(32))
-    description = db.Column(db.Text())
+    # description = db.Column(db.Text())
     # is_dangerous = db.Column(db.Boolean())
     allergen_rating = db.Column(db.Integer())
 

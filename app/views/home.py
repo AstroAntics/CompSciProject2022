@@ -147,6 +147,36 @@ def new_restaurant():
     return render_template("new_restaurant.html")
 
 
+@app.route("/restaurant2/new", methods=['GET', 'POST'])
+def new_restaurant_2():
+    _cuisines = Cuisine.query.all()
+    if request.method == 'POST':
+        restaurant_title = request.form['restaurantTitle']
+        restaurant_cuisine_id = request.form['cuisineId']
+        restaurant_allergen_rating = (request.form['allergenRating'])
+        # print(request.form) # DEBUGGING PURPOSES ONLY
+        # ok
+        restaurant = Restaurant(
+            cuisine_id=restaurant_cuisine_id,
+            title=restaurant_title,
+            allergen_rating=restaurant_allergen_rating
+        )
+        db.session.add(restaurant)
+        db.session.commit()
+    return render_template("new_restaurant_2.html", cuisines=_cuisines)
+
+
+@app.route("/cuisine2/<int:_id>/restaurants", methods=['GET', 'POST'])
+def get_restaurants_for_cuisine(_id):
+    _cuisine = Cuisine.query.filter_by(id=_id).first()
+    _restaurants = _cuisine.restaurants
+    if _restaurants is None or _cuisine is None:
+        # catch-all for nonexistent restaurants
+        return redirect("/")
+    else:
+        return render_template("cuisine_2_restaurants.html", restaurants=_restaurants)
+
+
 @app.route("/restaurants/delete/<id>", methods=['GET', 'POST'])  # do not allow get requests for deletion
 def delete_restaurant(restaurant):
     if request.method == 'POST':
@@ -162,7 +192,7 @@ def show_users():
 
 @app.route("/about")
 def about_us():
-    return "<p>This page is a work in progress. Come back later.</p>"
+    return render_template("about.html")
 
 
 @app.route("/cuisinemock/<int:_id>", methods=['GET', 'POST'])
