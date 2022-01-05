@@ -170,11 +170,10 @@ def new_restaurant_2():
 def get_restaurants_for_cuisine(_id):
     _cuisine = Cuisine.query.filter_by(id=_id).first()
     _restaurants = _cuisine.restaurants
-    if _restaurants is None or _cuisine is None:
+    if _restaurants is None:
         # catch-all for nonexistent restaurants
         return redirect("/")
-    else:
-        return render_template("cuisine_2_restaurants.html", restaurants=_restaurants)
+    return render_template("cuisine_2_restaurants.html", cuisine=_cuisine, restaurants=_restaurants)
 
 
 @app.route("/restaurants/delete/<id>", methods=['GET', 'POST'])  # do not allow get requests for deletion
