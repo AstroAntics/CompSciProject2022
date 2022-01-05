@@ -76,15 +76,15 @@
                 <p class="text-muted mx-auto d-block">
                     {# ! With apologies to whoever has to witness this GODAWFUL hack ! #}
                     {% if restaurant.allergen_rating == 5 %}
-                    Allergen Rating: &#9733;&#9733;&#9733;&#9733;&#9733;
+                        Allergen Rating: <span style="color: goldenrod;">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
                     {% elif restaurant.allergen_rating == 4 %}
-                    Allergen Rating: &#9733;&#9733;&#9733;&#9733;
+                        Allergen Rating: &#9733; &#9733; &#9733; &#9733;
                     {% elif restaurant.allergen_rating == 3 %}
-                    Allergen Rating: &#9733;&#9733;&#9733;
+                        Allergen Rating: &#9733; &#9733; &#9733;
                     {% elif restaurant.allergen_rating == 2 %}
-                    Allergen Rating: &#9733;&#9733;
+                        Allergen Rating: &#9733; &#9733;
                     {% elif restaurant.allergen_rating == 1 %}
-                    Allergen Rating: &#9733;
+                        Allergen Rating: &#9733;
                     {% endif %}
                     </p>
                 <hr>
