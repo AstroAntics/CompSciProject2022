@@ -1,0 +1,22 @@
+{% extends 'base_error.html' %}
+
+{% block title %} 403 Forbidden - Allergen Navigator {% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block main %}
+    <section style="text-align: center; height: 70vh;">
+        <h1 style="font-size: 5rem;"><strong>403</strong></h1>
+        <h3 style="font-size: 1.5rem;"><strong>Forbidden</strong></h3>
+        <img height="150px" width="150px" src="https://cdn.pixabay.com/photo/2013/07/12/13/21/delete-146891_960_720.png">
+        <p class="mt-2"><strong>You don't have permission to access this page or resource.</strong></p> <br>
+        <p style="margin-top: -2rem;" class="text-muted">Maybe you aren't supposed to be here.</p>
+        <button style="border-radius: 10rem;" class="btn btn-primary btn-rounded">Go Home</button>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

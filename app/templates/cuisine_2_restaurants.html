@@ -11,6 +11,8 @@
     <li class="breadcrumb-item active" aria-current="page">{{cuisine.name}}</li>
   </ol>
 </nav>
+<a href="/cuisine2/{{ cuisine.id - 1 }}/restaurants" style="float: right;">&larr; Previous Cuisine</a>
+<br>
 <a href="/cuisine2/{{cuisine.id + 1}}/restaurants" style="float: right;">&rarr; Next Cuisine</a>
 
 <div class="cuisine-block">
@@ -72,19 +74,43 @@
 
             {% for restaurant in restaurants %}
                 <h2 class="text-muted mx-auto d-block">{{ restaurant.title }}</h2>
-                <img class="img-thumbnail restaurant-img" src="https://b.zmtcdn.com/data/pictures/2/16541542/c7ce3301b7cb36444a0c91694bd554ec.jpg?fit=around|750:500&crop=750:500;*,*">
+                <img class="img-thumbnail restaurant-img" data-lightbox="image-1"
+                     data-title="Restaurant pane"
+                     src="https://b.zmtcdn.com/data/pictures/2/16541542/c7ce3301b7cb36444a0c91694bd554ec.jpg?fit=around|750:500&crop=750:500;*,*">
                 <p class="text-muted mx-auto d-block">
                     {# ! With apologies to whoever has to witness this GODAWFUL hack ! #}
                     {% if restaurant.allergen_rating == 5 %}
-                        Allergen Rating: <span style="color: goldenrod;">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+                        Allergen Rating:
+                    <span style="color: goldenrod;">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    </span>
                     {% elif restaurant.allergen_rating == 4 %}
-                        Allergen Rating: &#9733; &#9733; &#9733; &#9733;
+                        Allergen Rating:
+                    <span style="color: green;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span>
                     {% elif restaurant.allergen_rating == 3 %}
-                        Allergen Rating: &#9733; &#9733; &#9733;
+                        Allergen Rating:
+                    <span style="color: orange">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span>
                     {% elif restaurant.allergen_rating == 2 %}
-                        Allergen Rating: &#9733; &#9733;
+                        Allergen Rating:
+                    <span style="color: orangered;">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span>
                     {% elif restaurant.allergen_rating == 1 %}
-                        Allergen Rating: &#9733;
+                        Allergen Rating: <span style="color: crimson;"><i class="fa fa-star"></i></span>
                     {% endif %}
                     </p>
                 <hr>

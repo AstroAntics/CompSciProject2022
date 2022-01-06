@@ -1,0 +1,71 @@
+{% extends 'baseplate_new.html' %}
+
+{% block title %} Home - Alleradar {% endblock %}
+
+{% block navbar %}
+{% endblock %}
+
+{% block main %}
+<div class="row" style="height: 80vh; margin-left: calc(-11.5%) !important;">
+    <div class="col-sm-3 mx-0" style="transform: translateY(-5px);">
+        <h3 class="mt-4" style="color: #eaeaea;">Allergen Navigator</h3>
+    </div>
+    <div class="col mt-4" style="text-align: center;
+    font-weight: 900;
+    display: inline-flex;
+    margin-left: 15vh;
+    transform: translateY(-4%)">
+        <a href="/" style="padding: 30px;">Home</a>
+            <div class="dropdown" style="margin: 30px;">
+                    <a class="dropdown-toggle" id="dropdownMenu1">
+                    Restaurants
+                    <span class="caret"></span>
+                    </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <!-- Restaurant listing -->
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 1...</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 2...</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 3...</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 4...</a></li>
+                </ul>
+            </div>
+        </a>
+        <a href="/" style="padding: 30px;">FAQ</a>
+    </div>
+    <div class="col-sm-2 mt-4" style="font-weight: 900;">
+        <a href="/" class="btn btn-primary" style="border-radius: 10rem;
+        color: white !important; font-weight: 900; background: linear-gradient(45deg, #007bff, #3c01f100);">Contact Us</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block section2 %}
+<div class="desc-holder">
+    <div class="row">
+        <div class="col mt-4" style="margin-left: calc(-4%); margin-top: 20vh !important;">
+            <h1 style="color: white; text-align: center; font-weight: 800; margin-left: calc(9%)">
+            Even those who have an allergy <br> should be able to go to restaurants without trouble!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2" style="text-align: center; color: white;">
+            <h3 style="font-weight: 900;">Why not save yourself the effort and let us help you out?</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2" style="text-align: center; color: white;">
+            <p style="font-weight: 900;">We help you select allergy-safe restaurants and prevent
+            the constant threat of medical catastrophe. <br> Would you like to help us?</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2" style="text-align: center; color: white;">
+            <a class="btn btn-primary"
+            href="{{ request.path }}"
+            style="border-radius: 10rem; color: white !important; font-weight: 900;
+            background: linear-gradient(45deg, black, #007bff);">View Our Restaurant Catalog</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

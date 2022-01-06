@@ -30,6 +30,11 @@ def new_homepage():
     return render_template("homepage2.html")
 
 
+@app.route("/home3")
+def final_new_homepage():
+    return render_template("homepage_final_new.html")
+
+
 @app.route('/favicon.ico')
 # Courtesy of <https://thewebdev.info/2020/10/08/python-web-development-with-flask>
 def favicon():
@@ -148,6 +153,7 @@ def new_restaurant():
 
 
 @app.route("/restaurant2/new", methods=['GET', 'POST'])
+@app.route("/restaurant2/new/", methods=['GET', 'POST'])
 def new_restaurant_2():
     _cuisines = Cuisine.query.all()
     if request.method == 'POST':
@@ -172,8 +178,18 @@ def get_restaurants_for_cuisine(_id):
     _restaurants = _cuisine.restaurants
     if _restaurants is None:
         # catch-all for nonexistent restaurants
-        return redirect("/")
+        abort(404)
     return render_template("cuisine_2_restaurants.html", cuisine=_cuisine, restaurants=_restaurants)
+
+
+@app.route("/cuisine2/<int:_id>/restaurants/all", methods=['GET', 'POST'])
+@app.route("/cuisine2/<int:_id>/restaurants/all/", methods=['GET', 'POST'])
+def get_all_restaurants_for_cuisine(_id):
+    _cuisine = Cuisine.query.filter_by(id=_id).first()
+    _restaurants = _cuisine.restaurants
+    if _restaurants is None:
+        abort(404)
+    return render_template("cuisine_2_restaurants_all.html", cuisine=_cuisine, restaurants=_restaurants)
 
 
 @app.route("/restaurants/delete/<id>", methods=['GET', 'POST'])  # do not allow get requests for deletion
@@ -199,7 +215,7 @@ def cuisine_mock(_id):
     _cuisine = Cuisine.query.filter_by(id=_id).first()
     if _cuisine is None:
         # TODO awful hack, replace with proper 404 page sometime
-        return redirect("/")
+        abort(404)
     else:
         _rating = _cuisine.allergen_rating
         return render_template("cuisine_mockup.html", cuisine=_cuisine, star_rating=_rating)
@@ -217,7 +233,7 @@ def restaurant_2(_id):
     _restaurant = Restaurant.query.filter_by(id=_id).first()
     if _restaurant is None:
         # TODO even _worse_ hack, replace with proper 404 page sometime
-        return redirect("/")
+        abort(404)
     else:
         _rating = _restaurant.allergen_rating
         return render_template("restaurant_2_mockup.html", restaurant=_restaurant)
@@ -227,3 +243,42 @@ def restaurant_2(_id):
 def redirect_to_restaurant_2(_id):
     # TODO fix this ugly hack
     return redirect(f'/restaurant2/{_id}')
+
+
+@app.route("/404", methods=['GET'])
+def http_404_error_test():
+    # not an actual 404 error
+    abort(404)
+
+
+@app.route("/403", methods=['GET'])
+def http_403_error_test():
+    abort(403)
+
+
+@app.route("/500", methods=['GET'])
+def http_500_error_test():
+    abort(500)
+
+
+###############################################################
+######################## ERROR HANDLERS #######################
+# <https://flask.palletsprojects.com/en/2.0.x/errorhandling/> #
+###############################################################
+# TODO move to separate file
+@app.errorhandler(404)
+def page_not_found(e):
+    # 404 Not Found
+    return render_template('errors/404.html'), 404
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    # 403 Forbidden
+    return render_template('errors/403.html'), 403
+
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    # 500 Internal Server Error
+    return render_template('errors/500.html'), 500

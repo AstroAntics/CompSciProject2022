@@ -1,0 +1,29 @@
+{% extends 'base_error.html' %}
+
+{% block title %} 500 Internal Server Error - Allergen Navigator {% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block main %}
+    <section style="text-align: center; height: 70vh;">
+        <h1 style="font-size: 5rem;"><strong>500</strong></h1>
+        <h3 style="font-size: 1.5rem;"><strong>Internal Server Error</strong></h3>
+        <img src="https://blog.tmcnet.com/blog/tom-keating/images/laptop-exploding-battery-fire.jpg"
+        height="200px" width="250px">
+        <p class="mt-2">Something went wrong. <strong>Don't worry, this is not your fault.</strong>
+        <br>
+        The issue has been calmly categorized and a team of technicians have been dispatched to correct it.
+        <br>
+        The beatings will continue until morale improves.
+        </p>
+        <small class="text-muted">As a side note, if you see this error for longer than a few hours, contact me.</small>
+        <br>
+        <button style="border-radius: 10rem;" class="btn btn-primary btn-rounded mt-3">Go Home</button>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

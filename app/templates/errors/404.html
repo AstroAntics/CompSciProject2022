@@ -1,0 +1,23 @@
+{% extends 'base_error.html' %}
+
+{% block title %} 404 Not Found - Allergen Navigator {% endblock %}
+
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock %}
+
+{% block main %}
+    <section style="text-align: center; height: 65vh;">
+        <h1 style="font-size: 5rem;"><strong>404</strong></h1>
+        <h3 style="font-size: 1.5rem;"><strong>Page Not Found</strong></h3>
+        <img src="https://static.thenounproject.com/png/1527904-200.png">
+        <p><strong>Oops, we can't find the page you're looking for.</strong><br>
+            It may have been lost to the sands of time,
+        or it may have never existed in the first place.</p>
+        <button style="border-radius: 10rem;" class="btn btn-primary btn-rounded">Go Home</button>
+    </section>
+{% endblock %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock %}

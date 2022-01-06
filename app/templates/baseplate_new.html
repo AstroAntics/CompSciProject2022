@@ -17,17 +17,35 @@
         {% endblock %}
     </head>
     <body>
-        {% block navbar %}
-            {% include 'navbar.html' %}
-        {% endblock %}
-        <main>
+        <section class="section-intro" style="
+    background-image: url('https://media.istockphoto.com/photos/epinephrine-injection-using-autoinjector-syringe-picture-id482675393?k=20&amp;m=482675393&amp;s=612x612&amp;w=0&amp;h=giQvIyU3WaBiyNbQut0QDALkvlOBIpquIAgw2kuFJ5Y=');
+    background-repeat: no-repeat;
+    background-size: cover;">
                 <div class="container">
                     <!-- pusher -->
                     {% block main %}
                     {% endblock %}
                     <!-- end pusher -->
                 </div>
-        </main>
+        </section>
+        <section class="section-blurb-image" style="height: 80vh;
+        background-image: url('https://image.cnbcfm.com/api/v1/image/103899894-AP_16242447527212.jpg?v=1529472546');
+        background-size: 1200px; background-color: currentColor; background-repeat: no-repeat; opacity: 0.95;">
+            {% block section2 %}
+            {% endblock %}
+        </section>
+        <section class="section-offerings">
+            {% block section3 %}
+            {% endblock %}
+        </section>
+        <section class="about-me">
+            {% block section4 %}
+            {% endblock %}
+        </section>
+        <section class="contact-form">
+            {% block section5 %}
+            {% endblock %}
+        </section>
         {% block footer %}
             {% include 'footer.html' %}
         {% endblock %}
