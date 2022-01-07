@@ -29,3 +29,7 @@ span.red {
 a {
     color: #034a96 !important;
 }
+
+#restaurantsDropdown {
+    position: unset;
+}

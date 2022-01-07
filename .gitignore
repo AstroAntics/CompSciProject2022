@@ -1,8 +1,14 @@
 venv/
 .idea/
 __pycache__/
-# for testing purposes
+
+# for testing purposes, will probably toss this out entirely
 /app/core/header_quotes.py
 
 # ignore all test files - demo purposes only
 /app/static/img/dummyimg/*
+
+# ignore all images and static files that AREN'T important to the site
+# (to find these files just roll back to the commit where they existed)
+/app/static/food/*
+/app/static/v2/*

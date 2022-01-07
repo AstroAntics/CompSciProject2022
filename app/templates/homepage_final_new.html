@@ -1,71 +1,165 @@
 {% extends 'baseplate_new.html' %}
 
-{% block title %} Home - Alleradar {% endblock %}
+{% block title %} Home - Allergen Navigator {% endblock %}
 
 {% block navbar %}
 {% endblock %}
 
 {% block main %}
-<div class="row" style="height: 80vh; margin-left: calc(-11.5%) !important;">
-    <div class="col-sm-3 mx-0" style="transform: translateY(-5px);">
-        <h3 class="mt-4" style="color: #eaeaea;">Allergen Navigator</h3>
+    <div class="row" style="height: 80vh; margin-left: calc(-11.5%) !important;">
+        <div class="col-sm-3 mx-0" style="transform: translateY(-5px);">
+            <h3 class="mt-4" style="color: #eaeaea;">Allergen Navigator</h3>
+            <h1 style="width: 75vh;
+            color: white;
+            font-weight: 900;
+            margin-top: 20vh;
+            margin-left: 1vh;">Because to us, <span style="color: firebrick;">your health</span> is what matters.</h1>
+            <a class="btn btn-primary mt-4" href="#about" style="border-radius: 10rem;
+            color: white !important; font-weight: 900; background: linear-gradient(45deg, #007bff, #ff0101);">
+                About Us</a>
+        </div>
+        <div class="col mt-4" style="text-align: center;
+        font-weight: 900;
+        display: inline-flex;
+        margin-left: 15vh;
+        transform: translateY(-4%)">
+            <a href="{{request.path}}" style="padding: 30px;">Home</a>
+                <div class="dropdown" style="margin: 30px;">
+                        <a class="dropdown-toggle" id="dropdownMenu1">
+                        Restaurants
+                        <span class="caret"></span>
+                        </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" id="restaurantsDropdown">
+                        <!-- Restaurant listing -->
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 1...</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 2...</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 3...</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 4...</a></li>
+                    </ul>
+                </div>
+            </a>
+            <a href="/" style="padding: 30px;">FAQ</a>
+        </div>
+        <div class="col-sm-2 mt-4" style="font-weight: 900;">
+            <a href="/" class="btn btn-primary" style="border-radius: 10rem;
+            color: white !important; font-weight: 900; background: linear-gradient(45deg, #007bff, #3c01f100);">Contact Us</a>
+        </div>
     </div>
-    <div class="col mt-4" style="text-align: center;
-    font-weight: 900;
-    display: inline-flex;
-    margin-left: 15vh;
-    transform: translateY(-4%)">
-        <a href="/" style="padding: 30px;">Home</a>
-            <div class="dropdown" style="margin: 30px;">
-                    <a class="dropdown-toggle" id="dropdownMenu1">
-                    Restaurants
-                    <span class="caret"></span>
-                    </a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <!-- Restaurant listing -->
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 1...</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 2...</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 3...</a></li>
-                    <li role="presentation" class="divider"></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Restaurant 4...</a></li>
-                </ul>
-            </div>
-        </a>
-        <a href="/" style="padding: 30px;">FAQ</a>
-    </div>
-    <div class="col-sm-2 mt-4" style="font-weight: 900;">
-        <a href="/" class="btn btn-primary" style="border-radius: 10rem;
-        color: white !important; font-weight: 900; background: linear-gradient(45deg, #007bff, #3c01f100);">Contact Us</a>
-    </div>
-</div>
 {% endblock %}
 
 {% block section2 %}
-<div class="desc-holder">
-    <div class="row">
-        <div class="col mt-4" style="margin-left: calc(-4%); margin-top: 20vh !important;">
-            <h1 style="color: white; text-align: center; font-weight: 800; margin-left: calc(9%)">
-            Even those who have an allergy <br> should be able to go to restaurants without trouble!</h1>
+    <div class="desc-holder">
+        <div class="row">
+            <div class="col mt-4" style="margin-left: calc(-4%); margin-top: 20vh !important;">
+                <h1 style="color: white; text-align: center; font-weight: 800; margin-left: calc(9%)">
+                Even those who have an allergy <br> should be able to go to restaurants without trouble!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-2" style="text-align: center; color: white;">
+                <h3 style="font-weight: 900;">Why not save yourself the effort and let us help you out?</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-2" style="text-align: center; color: white;">
+                <p style="font-weight: 900;">We help you select allergy-safe restaurants and prevent
+                the constant threat of medical catastrophe. <br> Would you like to help us?</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-2" style="text-align: center; color: white;">
+                <a class="btn btn-primary"
+                href="{{ request.path }}"
+                style="border-radius: 10rem; color: white !important; font-weight: 900;
+                background: linear-gradient(45deg, black, #007bff);">View Our Restaurant Catalog</a>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col mt-2" style="text-align: center; color: white;">
-            <h3 style="font-weight: 900;">Why not save yourself the effort and let us help you out?</h3>
+{% endblock %}
+
+{% block section3 %}
+    <div class="row" style="height: 15vh; text-align: center;">
+        <div class="col">
+            <h1 class="mt-4" style="color: white;">What We Offer</h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col mt-2" style="text-align: center; color: white;">
-            <p style="font-weight: 900;">We help you select allergy-safe restaurants and prevent
-            the constant threat of medical catastrophe. <br> Would you like to help us?</p>
+    <div class="row" style="height: 35vh; text-align: center;">
+        <!-- Benefits cell -->
+        <div class="col">
+            <i class="fa fa-wrench" style="color: white; font-size: 4rem;"></i>
+            <h1 class="mt-4" style="color: goldenrod;">Adaptability</h1>
+            <p class="mt-2" style="color: white;">Visit our catalog of hand-picked restaurants <strong>anytime, anywhere.</strong></p>
+        </div>
+        <div class="col">
+            <i class="fa fa-laptop" style="color: white; font-size: 4rem;"></i>
+            <h1 class="mt-4" style="color: goldenrod;">Portability</h1>
+            <p class="mt-2" style="color: white;">Access our catalog <strong>by phone, by computer,</strong> or by any device you want.</p>
+        </div>
+        <div class="col">
+            <i class="fa fa-check" style="color: white; font-size: 4rem;"></i>
+            <h1 class="mt-4" style="color: goldenrod;">Reliability</h1>
+            <p class="mt-2" style="color: white;">Our allergen ratings are checked and verified so that you can have
+            a <strong>safe</strong> and <strong>fun</strong> time eating out.</p>
+        </div>
+        <div class="col">
+            <i class="fa fa-cog" style="color: white; font-size: 4rem;"></i>
+            <h1 class="mt-4" style="color: goldenrod;">Mobility</h1>
+            <p class="mt-2" style="color: white;">Our <strong>constantly updated</strong> allergen ratings and restaurant repositories will
+            ensure that you always have <strong>one restaurant</strong> to choose from. </p>
         </div>
     </div>
-    <div class="row">
-        <div class="col mt-2" style="text-align: center; color: white;">
-            <a class="btn btn-primary"
-            href="{{ request.path }}"
-            style="border-radius: 10rem; color: white !important; font-weight: 900;
-            background: linear-gradient(45deg, black, #007bff);">View Our Restaurant Catalog</a>
+{% endblock %}
+
+{% block section4 %}
+    <div class="row" style="height: 15vh; text-align: center;">
+        <div class="col">
+            <h1 class="mt-4" style="color: white;">About Me*</h1>
+            <small class="text-muted">*(and the people who helped out to make this site possible)</small>
         </div>
     </div>
-</div>
+    <div class="row" style="height: 35vh; text-align: center;">
+        <div class="col">
+            <img src="https://image.cnbcfm.com/api/v1/image/103899894-AP_16242447527212.jpg?v=1529472546" style="
+            height: 150px;
+            width: 150px;
+            border-radius: 10rem;
+            ">
+            <h2 class="mt-4" style="color: white;">Work in Progress</h2>
+        </div>
+    </div>
+{% endblock %}
+
+{% block section5 %}
+    <div class="row" style="height: 75vh; text-align: center;">
+        <div class="col">
+            <h1 class="mt-4" style="color: white;">Any Further Questions?</h1>
+            <p style="color: white;">Feel free to contact me.</p>
+                <form action="{{request.path}}" style="width: 50%; margin-left: 25%" method="post">
+                      <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <label for="inputEmail4">Email</label>
+                          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+                          <div class="form-group col-md-8">
+                            <label for="exampleFormControlTextarea1">Example textarea</label>
+                            <textarea
+                            class="form-control"
+                            id="exampleFormControlTextarea1"
+                            rows="3"
+                            placeholder="Your message here..."></textarea>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="gridCheck">
+                          <label class="form-check-label" for="gridCheck" style="color: white;">
+                            I am human.
+                          </label>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+        </div>
+    </div>
 {% endblock %}

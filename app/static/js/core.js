@@ -21,6 +21,19 @@ $(document).ready(function() {
 //        return mapsFrame
 //    }
 
+$('#dropdownMenu1').click(function (e) {
+    e.preventDefault();
+    console.log(e);
 
+//    _children = $('#dropdownMenu1').children();
+//    console.log(_children)
+
+    _restaurantsDropdown =  $('#restaurantsDropdown');
+//    console.log(_restaurantsDropdown)
+    _restaurantChildren = _restaurantsDropdown.children();
+    _restaurantChildren.parent().attr('style' , 'display: block');
+//    console.log(_restaurantChildren);
+//     _restaurantChildren.attr('display' , 'block');
+})
 
 });
