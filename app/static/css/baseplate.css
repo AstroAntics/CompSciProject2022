@@ -27,9 +27,16 @@ span.red {
 }
 
 a {
-    color: #034a96 !important;
+    color: #e2dfdf !important;
 }
 
 #restaurantsDropdown {
     position: unset;
+    background: #b7b7b7;
+    margin-left: 80px;
+}
+
+.body-slim {
+   background: currentColor;
+   width: 99% !important;
 }

@@ -16,9 +16,13 @@
         {% block scriptholder %}
         {% endblock %}
     </head>
-    <body style="background: currentColor; width: calc(99)%">
-        <section class="section-intro" style="
-    background-image: url('static/img/v2/promo_block_header_1.jpg');
+    <body style="background: currentColor; width: calc(99)%;">
+    <div class="alerts-holder">
+        {% block alerts %}
+        {% endblock %}
+    </div>
+    <section class="section-intro" style="
+    background-image: url('static/img/v2/promo_image_1_new.jpg');
     background-repeat: no-repeat;
     background-size: cover;">
                 <div class="container">
@@ -29,7 +33,7 @@
                 </div>
         </section>
         <section class="section-blurb-image" style="height: 80vh;
-        background-image: url('static/img/v2/promo_block_header_2.jpg');
+        background-image: url('static/img/v2/promo_image_2_new.jpg');
         background-size: cover; background-color: currentColor; background-repeat: no-repeat; opacity: 0.95;">
             {% block section2 %}
             {% endblock %}
